@@ -4,7 +4,7 @@ function Mobilenav() {
   return (
     <div>
     <div class="fixed w-full border-t border-gray-200 shadow-sm bg-white py-3 bottom-0 left-0 flex justify-around items-start px-6 lg:hidden z-40">
-        <a href="javascript:void(0)" class="block text-center text-gray-700 hover:text-primary transition relative">
+        <a href="#" class="block text-center text-gray-700 hover:text-primary transition relative">
             <div class="text-2xl" id="menuBar">
                 <i class="fas fa-bars"></i>
             </div>
@@ -51,9 +51,9 @@ function Mobilenav() {
                 <a href="#" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
                     About Us
                 </a>
-                <roa href="#" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                <a href="#" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
                     Contact Us
-                </roa>
+                </a>
             </div>
             {/* <!-- navlinks end --> */}
         </div>

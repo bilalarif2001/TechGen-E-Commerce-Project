@@ -8,7 +8,7 @@ function Header() {
             {/* <!-- logo --> */}
             <a href="#" class="block w-32">
                 {/* <img src="images/logo.svg" alt="logo" class="w-full"/> */}
-                <h1 className='text-white text-4xl'>TechGen</h1>
+                <h1 class="text-white text-3xl ">TechGen</h1>
             </a>
             {/* <!-- logo end --> */}
 
@@ -18,8 +18,8 @@ function Header() {
                     <i class="fas fa-search"></i>
                 </span>
                 <input type="text"
-                    class="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md focus:ring-primary focus:border-primary"
-                    placeholder="search"/>
+                    class="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md focus:ring-primary focus:outline-0"
+                    placeholder="Search the Entire Store"/>
                 <Button type="submit" varient="yellow">
                     Search
                 </Button>

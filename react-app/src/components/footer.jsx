@@ -120,7 +120,7 @@ function Footer() {
 
 {/* <!-- copyright --> */}
 <div class="bg-slate-600 py-4">
-    <div class="container flex items-center justify-center">
+    <div class="container mx-auto flex items-center justify-center">
         <p class="text-white">© TechGen - All Rights Reserved</p>
         <div>
           

@@ -21,7 +21,7 @@
       "brand": "Asus",
       "stock": 2,
       "price": 19,
-      "color": "white",
+      "color": ["red","white","blue"],
       "totalsold":2,
       "userrating": [{
         "id": 1,
@@ -32,5 +32,13 @@
       
     }
     
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "firstname": "hamza",
+      "email": "dummy@gmail.com",
+      "password": "abcdef"
+    }
   ]
 }

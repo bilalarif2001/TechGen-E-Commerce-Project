@@ -7,16 +7,26 @@ import Product from "./pages/product";
 import ShoppingCart from "./pages/shoppingCart";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Button from "./components/button";
 import Mobilenav from "./components/mobilenav";
+import Shop from "./pages/shop";
+
+import { Routes,Route, BrowserRouter  } from "react-router-dom";
 
 function App() {
   return (
-    /*  */
-    <div className="">
+    <div>
       <Header/>
       <Navbar/>
-      <Home/>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/signup" element={<Signup />}/>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/product" element={<Product />}/>
+        <Route path="/shop" element={<Shop />}/>
+        <Route path="*" element={<Home />}></Route>
+      </Routes>
+    </BrowserRouter>
       <Mobilenav/>
       <Footer/>
      
