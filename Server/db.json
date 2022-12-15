@@ -1,37 +1,40 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstname": "hamza",
-      "lastname": "abc",
-      "email": "dummy@gmail.com",
-      "password": "abcdef",
-      "avatar": "imagelink",
-      "age":25,
-      "gender":"male",
-      "birthday": "12-2-2022"
+      "firstname": "bilal",
+      "lastname": "Arif",
+      "gender": "Male",
+      "birthday": "2022-12-12",
+      "email": "bilal@gmail.com",
+      "password": "abc",
+      "id": 1
     }
   ],
-  "product": [
+  "products": [
     {
       "id": 1,
       "name": "Sony monitor",
+      "image": "abc",
       "category": "Monitors",
       "description": "First Dummy Content",
       "brand": "Asus",
       "stock": 2,
       "price": 19,
-      "color": ["red","white","blue"],
-      "totalsold":2,
-      "userrating": [{
-        "id": 1,
-        "name":"firstname",
-        "rating":3,
-        "comment":"comment"
-      }]
-      
+      "color": [
+        "red",
+        "white",
+        "blue"
+      ],
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
     }
-    
   ],
   "admin": [
     {

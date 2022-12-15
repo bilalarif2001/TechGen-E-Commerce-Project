@@ -1,40 +1,90 @@
 import React from 'react'
 import Input from '../components/input';
 import Button from '../components/button';
+import { Link, useNavigate } from 'react-router-dom';
+import {useState, useEffect} from 'react'
+import {ToastContainer,toast} from 'react-toastify'
+
 
 function Login() {
+    const [users,setUsers]= useState([])
+    const [email,setEmail]= useState("");
+    const [password,setPassword]= useState("");
+
+    const navigate= useNavigate();
+
+    useEffect(() => {
+        fetch("http://localhost:5000/users")
+          .then((response) => response.json())
+          .then((json) => setUsers(json));
+      }, []);
+
+    function submit (e){
+        e.preventDefault();
+
+        let findUser= users.find((user) => {
+            return (user.email===email && user.password===password)
+             });
+
+if (findUser===undefined){ // Find Method returns undefined if find condition is false.
+  toast.error("Email or Password is incorrect, or account does not exist against this email.",{autoClose:3000})
+}
+else{
+   /* props.nameSetter(email); */
+    toast.success("successfully Logined",{position:"top-center",autoClose:800, onClose: () => {
+      navigate("/home");
+    }});
+   
+
+    const {id,firstname,lastname,gender,birthday,email} = findUser;
+
+    localStorage.setItem("id", id);
+    localStorage.setItem("firstname", firstname);
+    localStorage.setItem("lastname", lastname);
+    localStorage.setItem("email", email);
+    localStorage.setItem("gender", gender);
+    localStorage.setItem("birthday", birthday);
+  }
+             
+    }
+
   return (
-    <div class="container py-16 mx-auto">
-    <div class="max-w-lg mx-auto shadow-lg px-6 py-7 rounded overflow-hidden">
-        <h2 class="text-2xl uppercase font-medium mb-1">
+    <div className="container py-16 mx-auto">
+        {/* header start */}
+    <div className="max-w-lg mx-auto shadow-lg px-6 py-7 rounded overflow-hidden">
+        <h2 className="text-2xl uppercase font-medium mb-1">
             LOGIN
         </h2>
-        <p class="text-gray-600 mb-6 text-sm">
+        <p className="text-gray-600 mb-6 text-sm">
             Login if you are a returning customer
         </p>
-        <form action="">
-            <div class="space-y-4">
+        {/* header end */}
+
+        {/* Form Start */}
+        <form type="submit">
+            <div className="space-y-4">
                 <div>
-                    <label class="text-gray-600 mb-2 block">
-                        Email Address <span class="text-rose-500">*</span>
+                    <label className="text-gray-600 mb-2 block">
+                        Email Address <span className="text-rose-500">*</span>
                     </label>
-                    <Input varient="login" placeholder="Enter your Email Address" />
+                    <Input varient="login" placeholder="Enter your Email Address" type="email" onChange={(e)=> setEmail(e.target.value)} />
                 </div>
                 <div>
-                    <label class="text-gray-600 mb-2 block">Password <span class="text-rose-500">*</span></label>
-                    <Input varient="login" placeholder="Enter your Password"/>
+                    <label className="text-gray-600 mb-2 block">Password <span className="text-rose-500">*</span></label>
+                    <Input varient="login" placeholder="Enter your Password" type="password" onChange={(e)=> setPassword(e.target.value)}/>
                 </div>
             </div>
-            <div class="mt-16">
-                <Button varient="card">Login</Button>
+            <div className="mt-16">
+                <Button varient="card" onClick={submit}>Login</Button>
             </div>
         </form>
+        {/* Form end */}
 
-        <p class="mt-4 text-gray-600 text-center">
-            Don't have an account? <a href="register.html" class="text-primary hover:text-rose-500">Register Now
-            </a>
+        <p className="mt-4 text-gray-600 text-center">
+            Don't have an account? <Link className="text-primary hover:text-rose-500" to={"/signup"}>Register Now</Link>
         </p>
     </div>
+    <ToastContainer/>
 </div>
   )
 }
