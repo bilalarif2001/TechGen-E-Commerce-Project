@@ -6,9 +6,11 @@ import Carousel from "nuka-carousel/lib/carousel";
 import Button from "../components/button";
 import Card from "../components/card";
 import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 function Home() {
   const [products, setProducts] = useState([]);
+  const navigate= useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -163,7 +165,7 @@ function Home() {
         {/* Display card if product exists otherwise display heading */}
         {products.length>0? <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
            {products.map((item) => (
-            <Card key={item.id} image={bannerImg2} price={item.price} name={item.name} description={item.description} />
+            <Card key={item.id} image={bannerImg2} price={item.price} name={item.name} description={item.description} onClick={()=> navigate(`/product/${item.name}`)} />
           ))}
         </div>:
         <h1 className="text-3xl text-center text-gray-500">No Products to Display</h1>

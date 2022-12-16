@@ -55,7 +55,7 @@ function Card(props) {
       </div>
       {/* <!-- product content end --> */}
       {/* <!-- product button --> */}
-      <Button varient="card" onClick={props.onClick}>Add to Cart</Button>
+      <Button varient="card" onClick={props.onClick}><i className="fa-solid fa-circle-info"></i> View Details</Button>
       {/*  <!-- product button end --> */}
     </div>
   );
