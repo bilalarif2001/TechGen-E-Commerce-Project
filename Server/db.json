@@ -34,6 +34,30 @@
           "comment": "comment"
         }
       ]
+    },
+    {
+      "id": 2,
+      "name": "Rtx 3080",
+      "image": "def",
+      "category": "Graphic Cards",
+      "description": "Incredible graphics performance MacBook Air can take on more graphics-intensive projects than ever. For the first time, content creators can edit and seamlessly play back multiple streams of full‑quality 4K video without dropping a frame",
+      "brand": "Nvidia",
+      "stock": 2,
+      "price": 799,
+      "color": [
+        "red",
+        "white",
+        "blue"
+      ],
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
     }
   ],
   "admin": [
@@ -42,6 +66,46 @@
       "firstname": "hamza",
       "email": "dummy@gmail.com",
       "password": "abcdef"
+    }
+  ],
+  "cart": [
+    {
+      "email": "ahmed@gmail.com",
+      "cartitems": {
+        "id": 1,
+        "name": "Sony monitor",
+        "image": "abc",
+        "category": "Monitors",
+        "description": "First Dummy Content",
+        "brand": "Asus",
+        "stock": 2,
+        "price": 19,
+        "color": [
+          "red",
+          "white",
+          "blue"
+        ]
+      },
+      "id": 1
+    },
+    {
+      "email": "ahmed@gmail.com",
+      "cartitems": {
+        "id": 2,
+        "name": "Rtx 3080",
+        "image": "def",
+        "category": "Graphic Cards",
+        "description": "Incredible graphics performance MacBook Air can take on more graphics-intensive projects than ever. For the first time, content creators can edit and seamlessly play back multiple streams of full‑quality 4K video without dropping a frame",
+        "brand": "Nvidia",
+        "stock": 2,
+        "price": 799,
+        "color": [
+          "red",
+          "white",
+          "blue"
+        ]
+      },
+      "id": 2
     }
   ]
 }

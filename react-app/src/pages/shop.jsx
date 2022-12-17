@@ -2,6 +2,7 @@ import React from 'react'
 import Card from '../components/card'
 import bannerimg2 from '../assets/BannerImage2.jpg'
 import Input from '../components/input'
+import { Link } from 'react-router-dom'
 
 function shop() {
   return (
@@ -9,11 +10,9 @@ function shop() {
     {/* <!-- breadcrumb --> */}
     <div className="container mx-auto py-4 flex justify-between">
         <div className="flex gap-3 items-center">
-            <a href="index.html" className="text-primary text-base">
-                <i className="fas fa-home"></i>
-            </a>
+            <Link className="text-primary text-base" to={'/home'}><i className="fas fa-home"></i></Link>
             <span className="text-sm text-gray-400"><i className="fas fa-chevron-right"></i></span>
-            <p className="text-gray-600 font-medium">Shop</p>
+            <Link className="text-gray-600 font-medium" to={'/shop'}>SHOP</Link>
         </div>
     </div>
     {/* <!-- breadcrumb end --> */}

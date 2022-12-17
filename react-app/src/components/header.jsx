@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './button'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
@@ -36,15 +37,14 @@ function Header() {
                     </div>
                     <div className="text-xs leading-3 text-slate-300">Wish List</div>
                 </a>
-                <a href="cart.html"
-                    className="lg:block text-center text-slate-300 hover:text-primary transition hidden relative">
+                <Link to={'/cart'} className="lg:block text-center text-slate-300 hover:text-primary transition hidden relative">
                     <span
                         className="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-yellow-500 text-black text-xs"><b>3</b></span>
                     <div className="text-2xl">
-                        <i className="fas fa-shopping-bag"></i>
+                     <i className="fas fa-shopping-bag"></i>
                     </div>
                     <div className="text-xs leading-3">Cart</div>
-                </a>
+                    </Link>
                 <a href="account.html" className="block text-center text-slate-300 hover:text-primary transition">
                     <div className="text-2xl">
                         <i className="far fa-user"></i>

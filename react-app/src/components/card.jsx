@@ -28,7 +28,7 @@ function Card(props) {
           <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
             {props.name}
           </h4>
-          <p className="text-gray-500 text-sm">{props.description}</p>
+          <p className="text-gray-500 text-sm line-clamp-1">{props.description}</p>
         <div className="flex items-baseline mb-1 space-x-2">
           <p className="text-xl text-primary font-roboto font-semibold">${props.price}</p>
         </div>

@@ -3,28 +3,84 @@ import Button from '../components/button';
 import bannerImg2 from '../assets/BannerImage2.jpg'
 import Card from '../components/card';
 import { useParams,useNavigate,Link } from 'react-router-dom';
+import {ToastContainer,toast} from 'react-toastify'
 import {useState, useEffect} from 'react'
+
 
 function Product(props) {
     const name= useParams()
     // Retrieving products data
     const products = props.products
+    const [cartItems,setCartItems]= useState([])
+    const [isLoading,setIsLoading]= useState(false); // Running useEffect whenever add to cart is clicked
+
+    function fetchCartItems(){
+        fetch("http://localhost:5000/cart")
+        .then((response) => response.json())
+        .then((json) =>  setCartItems(json));
+      }
+
+      useEffect(()=>{
+        fetchCartItems()
+      },[isLoading])
 
 // Fitering out the product from users according to useParams link
   const filteredProduct=(products.find((item) => {
-    return(item.name=name.name)})) // Useparams returns an object. 
+    return(item.name===name.name)})) // Useparams returns an object. 
+
+    // filtered cart for POST verification
+    const filteredCart=(cartItems.filter((item) => {
+        return(item.cartitems.name===filteredProduct.name)}))
     
     const navigate= useNavigate();
+
+    // Add to Cart Functionality
+    function cartHandler(){
+        const {id,name,image,category,description,brand,stock,price,color}= filteredProduct
+        const email=localStorage.getItem("email")
+
+        
+        //Checking filtered cart to avoid product duplication into cart
+        if (filteredCart.length>0) toast.error("Product Already Added",{autoClose:3000})
+        
+        // Posting cart data into server
+        else {
+        const userCart={
+            email:email,
+            cartitems:{ 
+                id:id,
+                name:name,
+                image:image,
+                category:category,
+                description:description,
+                brand:brand,
+                stock:stock,
+                price:price,
+                color:color
+        }
+        }
+          fetch("http://localhost:5000/cart", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userCart),
+          }).then((res) => {
+            if (res.status === 201) {
+                setIsLoading(true)
+           //   toast.success("Registration Done, Please Login",{autoClose:3000, onClose:()=>{navigate("/login")}});
+            }
+          })}
+    }
     
   return (
-    <div className="container mx-auto">{/* <!-- breadcrum --> */}
+    <div className="container mx-auto">
+        {/* <!-- breadcrum --> */}
     <div className="py-4 container flex gap-3 items-center">
-            <Link className="text-primary text-base"><i className="fas fa-home"></i></Link>
+            <Link className="text-primary text-base"to={'/home'}><i className="fas fa-home"></i></Link>
       
         <span className="text-sm text-gray-400"><i className="fas fa-chevron-right"></i></span>
-        <a href="shop.html" className="text-primary text-base font-medium uppercase">
-            Shop
-        </a>
+        <Link className="text-primary text-base font-medium uppercase" to={'/shop'}>Shop</Link>
         <span className="text-sm text-gray-400"><i className="fas fa-chevron-right"></i></span>
         <p className="text-gray-600 font-medium uppercase">{filteredProduct.name}</p>
     </div>
@@ -71,20 +127,20 @@ function Product(props) {
             </div>
             <div className="space-y-2">
                 <p className="text-gray-800 font-semibold space-x-2">
-                    <span>Availability: </span>
+                    <span>Availability:</span>
                    {filteredProduct.stock>0?<span className="text-green-600">In Stock</span>: <span className="text-rose-500">Out of Stock</span> }
                 </p>
                 <p className="space-x-2">
-                    <span className="text-gray-800 font-semibold">Brand: </span>
+                    <span className="text-gray-800 font-semibold">Brand:</span>
                     <span className="text-gray-600">{filteredProduct.brand}</span>
                 </p>
                 <p className="space-x-2">
-                    <span className="text-gray-800 font-semibold">Category: </span>
+                    <span className="text-gray-800 font-semibold">Category:</span>
                     <span className="text-gray-600">{filteredProduct.category}</span>
                 </p>
             </div>
             <div className="mt-4 flex items-baseline gap-3">
-                <span className="text-primary font-semibold text-xl">${filteredProduct.price}</span>
+                <span className="text-primary font-bold text-xl">${filteredProduct.price}</span>
             </div>
             <p className="mt-4 text-gray-600">
                 {filteredProduct.description}
@@ -105,18 +161,11 @@ function Product(props) {
             </div>
             {/* <!-- color end --> */}
             {/* <!-- quantity --> */}
-            <div className="mt-4">
-                <h3 className="text-base text-gray-800 mb-1">Quantity</h3>
-                <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300 w-max">
-                    <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">-</div>
-                    <div className="h-8 w-10 flex items-center justify-center">4</div>
-                    <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">+</div>
-                </div>
-            </div>
+
            {/*  <!-- color end --> */}
             {/* <!-- add to cart button --> */}
             <div className="flex gap-3 border-b border-gray-200 pb-5 mt-6">
-              <Button varient="cart"> <i className="fa-solid fa-cart-plus fill-current text-slate-100"/> Add to Cart</Button>
+              <Button varient="cart" onClick={cartHandler}> <i className="fa-solid fa-cart-plus fill-current text-slate-100"/> Add to Cart</Button>
               <Button varient="cart"><i className="far fa-heart fill-current text-slate-100"/> Wishlist</Button>
             </div>
             {/* <!-- add to cart button end --> */}
@@ -185,7 +234,7 @@ function Product(props) {
         </div>
        {/*  <!-- product wrapper end --> */}
     </div>
-
+    <ToastContainer/>
     </div>
   )
 }
