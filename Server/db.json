@@ -1,12 +1,13 @@
 {
   "users": [
     {
-      "firstname": "bilal",
+      "firstname": "Bilal",
       "lastname": "Arif",
       "gender": "Male",
-      "birthday": "2022-12-12",
+      "birthday": "2022-12-01",
       "email": "bilal@gmail.com",
       "password": "abc",
+      "block": false,
       "id": 1
     }
   ],
@@ -18,6 +19,7 @@
       "category": "Monitors",
       "description": "First Dummy Content",
       "brand": "Asus",
+      "quantity": 0,
       "stock": 10,
       "price": 19,
       "totalsold": 2,
@@ -37,6 +39,7 @@
       "category": "Graphic Cards",
       "description": "Incredible graphics performance MacBook Air can take on more graphics-intensive projects than ever. For the first time, content creators can edit and seamlessly play back multiple streams of full‑quality 4K video without dropping a frame",
       "brand": "Nvidia",
+      "quantity": 0,
       "stock": 2,
       "price": 799,
       "totalsold": 2,
@@ -67,6 +70,7 @@
       "city": "Lahore",
       "postalCode": "54000",
       "phoneNumber": "03072506432",
+      "totalprice": 1712,
       "products": [
         {
           "id": 1,
@@ -75,9 +79,29 @@
           "category": "Monitors",
           "description": "First Dummy Content",
           "brand": "Asus",
-          "quantity": 1,
+          "quantity": 6,
           "stock": 10,
           "price": 19,
+          "totalsold": 2,
+          "userrating": [
+            {
+              "id": 1,
+              "name": "firstname",
+              "rating": 3,
+              "comment": "comment"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Rtx 3080",
+          "image": "def",
+          "category": "Graphic Cards",
+          "description": "Incredible graphics performance MacBook Air can take on more graphics-intensive projects than ever. For the first time, content creators can edit and seamlessly play back multiple streams of full‑quality 4K video without dropping a frame",
+          "brand": "Nvidia",
+          "quantity": 2,
+          "stock": 2,
+          "price": 799,
           "totalsold": 2,
           "userrating": [
             {
@@ -90,37 +114,6 @@
         }
       ],
       "id": 1
-    },
-    {
-      "email": "bilal@gmail.com",
-      "firstname": "Bilal",
-      "lastname": "Arif",
-      "address": "H# 326 block 2 sector c2 Township, Lahore",
-      "city": "Lahore",
-      "postalCode": "54000",
-      "phoneNumber": "03072506432",
-      "products": [
-        {
-          "id": 1,
-          "name": "Sony monitor",
-          "image": "abc",
-          "category": "Monitors",
-          "description": "First Dummy Content",
-          "brand": "Asus",
-          "stock": 10,
-          "price": 19,
-          "totalsold": 2,
-          "userrating": [
-            {
-              "id": 1,
-              "name": "firstname",
-              "rating": 3,
-              "comment": "comment"
-            }
-          ]
-        }
-      ],
-      "id": 2
     }
   ]
 }

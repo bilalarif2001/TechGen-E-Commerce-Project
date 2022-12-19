@@ -4,6 +4,7 @@ import img from '../../assets/BannerImage2.jpg'
 import {useState,useEffect} from 'react'
 import cartdata from './cartdata';
 import Cartproducts from './cartproducts';
+import cartTotal from './carttotal';
 import {ToastContainer,toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ function ShoppingCart() {
 
     let email=localStorage.getItem("email");
     let [sum,setSum]= useState(0)
+        cartTotal[0]=sum
         
    /*  useEffect(()=>{
             console.log("wow from cart")
@@ -29,6 +31,7 @@ function ShoppingCart() {
     function reupdateCartByQuantity(quantity,index){
     cartdata[index].quantity=quantity
     setSum(sumofProducts(cartdata))
+    
     }
 
     function reupdateCartOnDelete(){

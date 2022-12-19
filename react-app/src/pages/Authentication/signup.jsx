@@ -6,6 +6,7 @@ import Button from "../../components/button";
 import { Link } from "react-router-dom";
 import {ToastContainer,toast} from 'react-toastify'
 
+
 function Signup() {
   const [users,setUsers]= useState([])
   const [firstName, setFirstname] = useState("");
@@ -59,6 +60,7 @@ function submit(e) {
       birthday: Birthday,
       email: email,
       password: password,
+      block:false
     };
     fetch("http://localhost:5000/users", {
       method: "POST",

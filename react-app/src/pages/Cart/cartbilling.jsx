@@ -6,6 +6,7 @@ import Button from "../../components/button";
 import { Link } from "react-router-dom";
 import {ToastContainer,toast} from 'react-toastify'
 import cartdata from "./cartdata";
+import cartTotal from "./carttotal";
 
 function CartBilling() {
   const [firstName, setFirstname] = useState("");
@@ -47,7 +48,9 @@ function submit(e) {
       city: city,
       postalCode: postalCode,
       phoneNumber: phoneNumber,
+      totalprice:cartTotal[0],
       products:cartdata
+      
     };
     fetch("http://localhost:5000/orders", {
       method: "POST",

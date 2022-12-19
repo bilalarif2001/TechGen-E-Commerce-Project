@@ -4,8 +4,8 @@ import bannerImg2 from '../../assets/BannerImage2.jpg'
 import Card from '../../components/card';
 import { useParams,useNavigate,Link } from 'react-router-dom';
 import {ToastContainer,toast} from 'react-toastify'
-import {useState, useEffect} from 'react'
-import cartdatas from '../Cart/cartdata';
+import {useState} from 'react'
+import cartdata from '../Cart/cartdata';
 
 
 function Product(props) {
@@ -13,12 +13,8 @@ function Product(props) {
     // Retrieving products data
     const products = props.products
     const [load,setLoad]= useState(false)
-    const [cartdata,setCartData]= useState([])
     const [loadMessage,setLoadMessage] = useState(false)
 
-    useEffect(()=>{
-setCartData(cartdatas)
-    },[load])
    
  
 
