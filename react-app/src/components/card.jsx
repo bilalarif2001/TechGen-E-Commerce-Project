@@ -14,12 +14,6 @@ function Card(props) {
           >
             <i className="fas fa-search"></i>
           </a>
-          <a
-            href="#"
-            className="text-white text-lg w-9 h-9 rounded-full bg-primary hover:bg-gray-800 transition flex items-center justify-center"
-          >
-            <i className="far fa-heart"></i>
-          </a>
         </div>
       </div>
       {/* <!-- product image end --> */}

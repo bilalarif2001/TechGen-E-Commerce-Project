@@ -1,8 +1,8 @@
 import React from "react";
 import { useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import Input from "../components/input";
-import Button from "../components/button";
+import Input from "../../components/input";
+import Button from "../../components/button";
 import { Link } from "react-router-dom";
 import {ToastContainer,toast} from 'react-toastify'
 

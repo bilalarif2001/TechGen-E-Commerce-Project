@@ -1,76 +1,47 @@
 import React from 'react'
-import Button from '../components/button';
-import bannerImg2 from '../assets/BannerImage2.jpg'
-import Card from '../components/card';
+import Button from '../../components/button';
+import bannerImg2 from '../../assets/BannerImage2.jpg'
+import Card from '../../components/card';
 import { useParams,useNavigate,Link } from 'react-router-dom';
 import {ToastContainer,toast} from 'react-toastify'
 import {useState, useEffect} from 'react'
+import cartdatas from '../Cart/cartdata';
 
 
 function Product(props) {
     const name= useParams()
     // Retrieving products data
     const products = props.products
-    const [cartItems,setCartItems]= useState([])
-    const [isLoading,setIsLoading]= useState(false); // Running useEffect whenever add to cart is clicked
+    const [load,setLoad]= useState(false)
+    const [cartdata,setCartData]= useState([])
+    const [loadMessage,setLoadMessage] = useState(false)
 
-    function fetchCartItems(){
-        fetch("http://localhost:5000/cart")
-        .then((response) => response.json())
-        .then((json) =>  setCartItems(json));
-      }
-
-      useEffect(()=>{
-        fetchCartItems()
-      },[isLoading])
+    useEffect(()=>{
+setCartData(cartdatas)
+    },[load])
+   
+ 
 
 // Fitering out the product from users according to useParams link
   const filteredProduct=(products.find((item) => {
     return(item.name===name.name)})) // Useparams returns an object. 
-
-    // filtered cart for POST verification
-    const filteredCart=(cartItems.filter((item) => {
-        return(item.cartitems.name===filteredProduct.name)}))
+    
+    const isProductExistInCart=(cartdata.filter((item) => {
+        return(item.name===name.name)}))
     
     const navigate= useNavigate();
 
     // Add to Cart Functionality
     function cartHandler(){
-        const {id,name,image,category,description,brand,stock,price,color}= filteredProduct
-        const email=localStorage.getItem("email")
-
-        
-        //Checking filtered cart to avoid product duplication into cart
-        if (filteredCart.length>0) toast.error("Product Already Added",{autoClose:3000})
-        
-        // Posting cart data into server
-        else {
-        const userCart={
-            email:email,
-            cartitems:{ 
-                id:id,
-                name:name,
-                image:image,
-                category:category,
-                description:description,
-                brand:brand,
-                stock:stock,
-                price:price,
-                color:color
-        }
-        }
-          fetch("http://localhost:5000/cart", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userCart),
-          }).then((res) => {
-            if (res.status === 201) {
-                setIsLoading(true)
-           //   toast.success("Registration Done, Please Login",{autoClose:3000, onClose:()=>{navigate("/login")}});
-            }
-          })}
+       setLoad(true)
+       if(isProductExistInCart.length>0) {
+        setLoadMessage(true);
+    }
+       else {cartdata.push(filteredProduct)
+        toast.success("Product Successfully added to cart")
+        setLoadMessage(false)
+    }
+       
     }
     
   return (
@@ -145,29 +116,16 @@ function Product(props) {
             <p className="mt-4 text-gray-600">
                 {filteredProduct.description}
             </p>
-            {/* <!-- color --> */}
-            <div className="mt-4">
-                <h3 className="text-base text-gray-800 mb-1">Color</h3>
-                <div className="flex items-center gap-2">
-                    {/* <!-- single color --> */}
-                    <div className="color-selector">
-                        <input type="radio" name="color" className="hidden" id="color-red" />
-                        <label
-                            className="text-xs border border-gray-200 rounded-sm h-5 w-5 flex items-center justify-center cursor-pointer shadow-sm">
-                        </label>
-                    </div>
-                    {/* <!-- single color end --> */}
-                </div>
-            </div>
-            {/* <!-- color end --> */}
-            {/* <!-- quantity --> */}
 
-           {/*  <!-- color end --> */}
             {/* <!-- add to cart button --> */}
             <div className="flex gap-3 border-b border-gray-200 pb-5 mt-6">
               <Button varient="cart" onClick={cartHandler}> <i className="fa-solid fa-cart-plus fill-current text-slate-100"/> Add to Cart</Button>
               <Button varient="cart"><i className="far fa-heart fill-current text-slate-100"/> Wishlist</Button>
             </div>
+             {loadMessage && <div className="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-2 " role="alert">
+                <p className="font-bold">Product has been already Added to Cart</p>
+                <Link to={'/cart'}>Go to Cart?</Link>
+                </div>}
             {/* <!-- add to cart button end --> */}
             {/* <!-- product share icons --> */}
             <div className="flex space-x-3 mt-4">

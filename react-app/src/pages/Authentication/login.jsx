@@ -1,6 +1,6 @@
 import React from 'react'
-import Input from '../components/input';
-import Button from '../components/button';
+import Input from '../../components/input';
+import Button from '../../components/button';
 import { Link, useNavigate } from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import {ToastContainer,toast} from 'react-toastify'

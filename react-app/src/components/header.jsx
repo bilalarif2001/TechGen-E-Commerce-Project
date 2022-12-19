@@ -29,14 +29,6 @@ function Header() {
 
             {/* <!-- navicons --> */}
             <div className="space-x-4 flex items-center">
-                <a href="wishlist.html" className="block text-center text-gray-700 hover:text-primary transition relative">
-                    <span
-                        className="absolute -right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-yellow-500 text-black text-xs"><b>5</b></span>
-                    <div className="text-2xl">
-                        <i className="far fa-heart fill-current text-slate-300"></i>
-                    </div>
-                    <div className="text-xs leading-3 text-slate-300">Wish List</div>
-                </a>
                 <Link to={'/cart'} className="lg:block text-center text-slate-300 hover:text-primary transition hidden relative">
                     <span
                         className="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-yellow-500 text-black text-xs"><b>3</b></span>

@@ -1,7 +1,7 @@
 import React from 'react'
-import Card from '../components/card'
-import bannerimg2 from '../assets/BannerImage2.jpg'
-import Input from '../components/input'
+import Card from '../../components/card'
+import bannerimg2 from '../../assets/BannerImage2.jpg'
+import Input from '../../components/input'
 import { Link } from 'react-router-dom'
 
 function shop() {

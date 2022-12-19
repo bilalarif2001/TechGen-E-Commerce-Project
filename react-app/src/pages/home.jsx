@@ -16,7 +16,6 @@ function Home() {
     fetch("http://localhost:5000/products")
       .then((response) => response.json())
       .then((json) => setProducts(json));
-    console.log(products);
   }, []);
 
   /* style={{ backgroundImage: `url(${img})`}} */
