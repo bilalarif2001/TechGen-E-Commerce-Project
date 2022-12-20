@@ -1,4 +1,5 @@
 import Login from "./pages/Authentication/login";
+import AdminLogin from "./pages/Authentication/adminLogin";
 import Signup from "./pages/Authentication/signup";
 import Navbar from "./components/navbar";
 import EditProfile from "./pages/editProfile";
@@ -42,6 +43,7 @@ function App() {
             <Route path="/product/:name" element={<Product products={products}/>}/>
           )}
           <Route path="/shop" element={<Shop />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/cart" element={<ShoppingCart/>}></Route>
           <Route path="/billing" element={<CartBilling />} />
           <Route path="*" element={<Home />}></Route>
@@ -50,6 +52,7 @@ function App() {
         <Mobilenav />
         <Footer />
       </BrowserRouter>
+      
     </div>
   );
 }
