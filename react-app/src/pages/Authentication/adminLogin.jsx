@@ -27,7 +27,7 @@ function AdminLogin() {
              });
 
 if (findUser===undefined){ // Find Method returns undefined if find condition is false.
-  toast.error("Email or Password is incorrect, or account does not exist against this email.",{autoClose:3000})
+  toast.error("Email or Password is incorrect",{autoClose:3000})
 }
 else{
    /* props.nameSetter(email); */
