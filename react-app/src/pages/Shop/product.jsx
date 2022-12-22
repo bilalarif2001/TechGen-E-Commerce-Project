@@ -1,11 +1,14 @@
 import React from 'react'
+import Header from "../../components/header";
+import Navbar from "../../components/navbar";
+import Mobilenav from '../../components/mobilenav';
 import Button from '../../components/button';
-import bannerImg2 from '../../assets/BannerImage2.jpg'
 import Card from '../../components/card';
 import { useParams,useNavigate,Link } from 'react-router-dom';
 import {ToastContainer,toast} from 'react-toastify'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import cartdata from '../Cart/cartdata';
+import Footer from '../../components/footer';
 
 
 function Product(props) {
@@ -14,33 +17,46 @@ function Product(props) {
     const products = props.products
     const [load,setLoad]= useState(false)
     const [loadMessage,setLoadMessage] = useState(false)
+    const [isProductExistInCart,setIsProductExistInCart] = useState([])
 
-   
+   useEffect(()=>{
+    
+    setIsProductExistInCart((cartdata.filter((item) => {
+    return(item.name===name.name)})))
+   },[load])
  
 
 // Fitering out the product from users according to useParams link
   const filteredProduct=(products.find((item) => {
     return(item.name===name.name)})) // Useparams returns an object. 
+
+    const [image,setImage]= useState(filteredProduct.img1)
+
     
-    const isProductExistInCart=(cartdata.filter((item) => {
-        return(item.name===name.name)}))
+    
+
+        console.log(isProductExistInCart)
     
     const navigate= useNavigate();
 
     // Add to Cart Functionality
     function cartHandler(){
-       setLoad(true)
+        setLoad(true) // Updating Filteration after button click.
        if(isProductExistInCart.length>0) {
         setLoadMessage(true);
     }
-       else {cartdata.push(filteredProduct)
-        toast.success("Product Successfully added to cart")
+       else if (isProductExistInCart.length===0) {cartdata.push(filteredProduct)
+        toast.success("Product Successfully added to cart",{autoClose:1000})
         setLoadMessage(false)
     }
        
     }
     
   return (
+    <div>
+        <Header/>
+        <Navbar/>
+        
     <div className="container mx-auto">
         {/* <!-- breadcrum --> */}
     <div className="py-4 container flex gap-3 items-center">
@@ -58,23 +74,20 @@ function Product(props) {
         {/* <!-- product image --> */}
         <div>
             <div>
-                <img id="main-img" src={bannerImg2} className="w-full"/>
+                <img id="main-img" src={image} className="w-80 xl:ml-36 md:ml-20 sm:ml-28"/>
             </div>
-            <div className="grid grid-cols-5 gap-4 mt-4">
-                <div>
-                    <img src={bannerImg2} className="single-img w-full cursor-pointer border border-primary"/>
+            <div className="grid grid-cols-4 gap-4 mt-4">
+                <div onClick={()=>{setImage(filteredProduct.img1)}}>
+                    <img src={filteredProduct.img1} className="single-img w-full cursor-pointer border border-primary"/>
                 </div>
-                <div>
-                    <img src={bannerImg2} className="single-img w-full cursor-pointer border"/>
+                <div onClick={()=>{setImage(filteredProduct.img2)}}>
+                    <img src={filteredProduct.img2} className="single-img w-full cursor-pointer border"/>
                 </div>
-                <div>
-                    <img src={bannerImg2} className="single-img w-full cursor-pointer border"/>
+                <div onClick={()=>{setImage(filteredProduct.img3)}}>
+                    <img src={filteredProduct.img3} className="single-img w-full cursor-pointer border"/>
                 </div>
-                <div>
-                    <img src={bannerImg2} className="single-img w-full cursor-pointer border"/>
-                </div>
-                <div>
-                    <img src={bannerImg2} className="single-img w-full cursor-pointer border"/>
+                <div onClick={()=>{setImage(filteredProduct.img4)}}>
+                    <img src={filteredProduct.img4} className="single-img w-full cursor-pointer border"/>
                 </div>
             </div>
         </div>
@@ -99,11 +112,11 @@ function Product(props) {
                 </p>
                 <p className="space-x-2">
                     <span className="text-gray-800 font-semibold">Brand:</span>
-                    <span className="text-gray-600">{filteredProduct.brand}</span>
+                    <span className="text-gray-600 capitalize">{filteredProduct.brand}</span>
                 </p>
                 <p className="space-x-2">
                     <span className="text-gray-800 font-semibold">Category:</span>
-                    <span className="text-gray-600">{filteredProduct.category}</span>
+                    <span className="text-gray-600 capitalize">{filteredProduct.category}</span>
                 </p>
             </div>
             <div className="mt-4 flex items-baseline gap-3">
@@ -180,15 +193,21 @@ function Product(props) {
     <div className="container pb-16">
         <h2 className="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">related products</h2>
         {/* <!-- product wrapper --> */}
-        <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
-           <Card image={bannerImg2}/>
-           <Card image={bannerImg2}/>
-           <Card image={bannerImg2}/>
-           <Card image={bannerImg2}/>
+        <div className="grid lg:grid-cols-1 sm:grid-cols-1 gap-6">
+        {products.length>0? <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
+           {products.slice(1,5).map((item) => (
+            <Card key={item.id} image={item.img1} price={item.price} name={item.name} description={item.description} onClick={()=> navigate(`/product/${item.name}`)} />
+          ))}
+        </div>:
+        <h1 className="text-3xl text-center text-gray-500">No Products to Display</h1>
+        }
         </div>
        {/*  <!-- product wrapper end --> */}
     </div>
     <ToastContainer/>
+    </div>
+    <Mobilenav/>
+    <Footer/>
     </div>
   )
 }

@@ -1,14 +1,35 @@
 import React from "react";
-import bannerImg1 from "../assets/AsusBanner.webp";
-import bannerImg2 from "../assets/BannerImage2.jpg";
+import Header from "../components/header";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+
+// Importing Assets
+import Mobilenav from "../components/mobilenav";
+import RTXBanner from "../assets/4090banner.jpg";
+import AsRockBanner from "../assets/asrockbanner.jpg";
+import NzxtBanner from "../assets/nzxtbanner.jpg";
+import NvidiaBanner from "../assets/NvidiaBanner.jpg";
 import IntelBanner from "../assets/IntelBanner.webp";
-import Carousel from "nuka-carousel/lib/carousel";
+import Monitors from '../assets/monitors.jpg'
+import Nvidia from "../assets/nvidia.webp";
+import Motherboard from '../assets/motherboard.webp'
+import Intel from '../assets/intel.jpg'
+import Ram from '../assets/ram.jpg'
+import Periphrals from '../assets/periphrals.jpg'
+
+
 import Button from "../components/button";
 import Card from "../components/card";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-function Home() {
+// Image Slider Imports
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination,Autoplay } from "swiper";
+import 'swiper/css'
+import 'swiper/css/pagination'
+
+function Home(props) {
   const [products, setProducts] = useState([]);
   const navigate= useNavigate();
 
@@ -20,16 +41,26 @@ function Home() {
 
   /* style={{ backgroundImage: `url(${img})`}} */
   return (
+    <div>
+    <Header />
+    <Navbar />
     <div className="container mx-auto">
       {/* Banner Start */}
       <div className=" w-full m-2 relative bg-cover bg-no-repeat bg-center">
-        <Carousel style={{ borderRadius: "10px" }}>
-          <img src={bannerImg1} />
-          <img src={bannerImg2} />
+      <Swiper pagination={true} modules={[Pagination,Autoplay]} className="mySwiper" autoplay={{delay:3000}}>
+        <SwiperSlide><img src={RTXBanner} alt="slide1" /></SwiperSlide>
+        <SwiperSlide><img src={NzxtBanner} alt="slide2" /></SwiperSlide>
+        <SwiperSlide><img src={NvidiaBanner} alt="slide3" /></SwiperSlide>
+        <SwiperSlide><img src={AsRockBanner} alt="slide3" /></SwiperSlide>
+        
+      </Swiper>
+     {/*    <Carousel style={{ borderRadius: "10px" }}>
+          <div><img src={bannerImg1} /></div>
+          
           <img src="/image3.png" />
           <img src="/image4.png" />
           <img src="/image5.png" />
-        </Carousel>
+        </Carousel> */}
       </div>
       {/* Banner End */}
 
@@ -82,73 +113,73 @@ function Home() {
         <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-3">
           {/* <!-- single category --> */}
           <div className="relative group rounded-sm overflow-hidden">
-            <img src={bannerImg2} className="w-full" />
+            <img src={Monitors} className="w-full" />
             <a
               href="#"
               className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 flex items-center justify-center text-xl text-white 
                     font-roboto font-medium tracking-wide transition"
             >
-              Bedroom
+              Monitors
             </a>
           </div>
           {/* <!-- single category end --> */}
           {/* <!-- single category --> */}
           <div className="relative group rounded-sm overflow-hidden">
-            <img src={bannerImg2} className="w-full" />
+            <img src={Nvidia} className="w-full" />
             <a
               href="#"
               className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 flex items-center justify-center text-xl text-white 
                     font-roboto font-medium tracking-wide transition"
             >
-              Sofa
+              Graphic Cards
             </a>
           </div>
           {/* <!-- single category end --> */}
           {/* <!-- single category --> */}
           <div className="relative group rounded-sm overflow-hidden">
-            <img src={bannerImg2} className="w-full" />
+            <img src={Motherboard} className="w-full" />
             <a
               href="#"
               className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 flex items-center justify-center text-xl text-white 
                     font-roboto font-medium tracking-wide transition"
             >
-              Office
+              Motherboards
             </a>
           </div>
           {/* <!-- single category end --> */}
           {/* <!-- single category --> */}
           <div className="relative group rounded-sm overflow-hidden">
-            <img src={bannerImg2} className="w-full" />
+            <img src={Intel} className="w-full" />
             <a
               href="#"
               className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 flex items-center justify-center text-xl text-white 
                     font-roboto font-medium tracking-wide transition"
             >
-              Outdoor
+              Processors
             </a>
           </div>
           {/* <!-- single category end --> */}
           {/* <!-- single category --> */}
           <div className="relative group rounded-sm overflow-hidden">
-            <img src={bannerImg2} className="w-full" />
+            <img src={Ram} className="w-full" />
             <a
               href="#"
               className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 flex items-center justify-center text-xl text-white 
                     font-roboto font-medium tracking-wide transition"
             >
-              Mattress
+              Memory
             </a>
           </div>
           {/* <!-- single category end --> */}
           {/* <!-- single category --> */}
           <div className="relative group rounded-sm overflow-hidden">
-            <img src={bannerImg2} className="w-full" />
+            <img src={Periphrals} className="w-full" />
             <a
               href="#"
               className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 flex items-center justify-center text-xl text-white 
                         font-roboto font-medium tracking-wide transition"
             >
-              Dinings
+              Periphrals
             </a>
           </div>
           {/* <!-- single category end --> */}
@@ -163,8 +194,8 @@ function Home() {
         </h2>
         {/* Display card if product exists otherwise display heading */}
         {products.length>0? <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
-           {products.map((item) => (
-            <Card key={item.id} image={bannerImg2} price={item.price} name={item.name} description={item.description} onClick={()=> navigate(`/product/${item.name}`)} />
+           {products.slice(1,5).map((item) => (
+            <Card key={item.id} image={item.img1} price={item.price} name={item.name} description={item.description} onClick={()=> navigate(`/product/${item.name}`)} />
           ))}
         </div>:
         <h1 className="text-3xl text-center text-gray-500">No Products to Display</h1>
@@ -183,14 +214,17 @@ function Home() {
         </h2>
         {/* Display card if product exists otherwise display heading */}
         {products.length>0? <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
-           {products.map((item) => (
-            <Card key={item.id} image={bannerImg2} price={item.price} name={item.name} description={item.description} />
+           {products.slice(1,5).map((item) => (
+            <Card key={item.id} image={item.img1} price={item.price} name={item.name} description={item.description} onClick={()=> navigate(`/product/${item.name}`)} />
           ))}
         </div>:
         <h1 className="text-3xl text-center text-gray-500">No Products to Display</h1>
         }
       </div>
       {/* Recommended Items End */}
+    </div>
+    <Mobilenav/>
+    <Footer/>
     </div>
   );
 }

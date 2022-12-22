@@ -78,7 +78,7 @@ function submit(e) {
 
   return (
     <div className="container py-16 mx-auto">
-      <div className="max-w-lg mx-auto shadow-lg px-6 py-7 rounded overflow-hidden">
+      <div className="max-w-lg mx-auto shadow-lg px-6 py-7 rounded overflow-hidden bg-gray-50">
         <h2 className="text-2xl uppercase font-medium mb-1">Sign-Up</h2>
         <p className="text-gray-600 mb-6 text-sm">
           Please fill the form for registeration.

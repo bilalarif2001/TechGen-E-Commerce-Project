@@ -1,8 +1,15 @@
 import React from 'react'
 import Button from './button'
 import { Link } from 'react-router-dom'
+import cartdata from '../pages/Cart/cartdata'
+import {useState,useEffect} from 'react'
 
 function Header() {
+    const [cartValue,setCartValue] = useState(0)
+    console.log(cartdata.length)
+    useEffect(()=>{
+        setCartValue(cartdata.length)
+    },[cartdata.length])
   return (
     <header className="py-4 shadow-sm bg-slate-600">
         <div className="container mx-auto flex items-center justify-between">
@@ -29,19 +36,20 @@ function Header() {
 
             {/* <!-- navicons --> */}
             <div className="space-x-4 flex items-center">
-                <Link to={'/cart'} className="lg:block text-center text-slate-300 hover:text-primary transition hidden relative">
+                <Link to={'/cart'} className="lg:block text-center text-slate-200 hover:text-slate-300 transition hidden relative">
                     <span
-                        className="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-yellow-500 text-black text-xs"><b>3</b></span>
+                        className="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-yellow-500 text-black text-xs"><b>{cartValue}</b></span>
                     <div className="text-2xl">
                      <i className="fas fa-shopping-bag"></i>
                     </div>
                     <div className="text-xs leading-3">Cart</div>
                     </Link>
-                <a href="account.html" className="block text-center text-slate-300 hover:text-primary transition">
+                <a href="account.html" className="block text-center text-slate-200 hover:text-slate-300 transition">
                     <div className="text-2xl">
                         <i className="far fa-user"></i>
                     </div>
                     <div className="text-xs leading-3 text-slate-300">Account</div>
+                    
                 </a>
             </div>
             {/* <!-- navicons end --> */}

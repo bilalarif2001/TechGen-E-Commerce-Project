@@ -12,6 +12,8 @@ import Mobilenav from "./components/mobilenav";
 import CartBilling from "./pages/Cart/cartbilling";
 import Shop from "./pages/Shop/shop";
 import { useState, useEffect } from "react";
+import OrderPlaced from "./pages/Cart/orderplaced";
+import Error from "./pages/error";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
@@ -31,9 +33,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
-        <Navbar />
-
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -42,15 +41,16 @@ function App() {
           {products.length > 0 && (
             <Route path="/product/:name" element={<Product products={products}/>}/>
           )}
-          <Route path="/shop" element={<Shop />} />
+         {products.length > 0 &&<Route path="/shop" element={<Shop products={products} />} />}
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/cart" element={<ShoppingCart/>}></Route>
           <Route path="/billing" element={<CartBilling />} />
-          <Route path="*" element={<Home />}></Route>
+          <Route path="/home" element={<Home/>}></Route>
+          <Route path="/orderplaced" element={<OrderPlaced/>}></Route>
+          <Route path="*" element={<Error/>}></Route>
         </Routes>
 
-        <Mobilenav />
-        <Footer />
+       
       </BrowserRouter>
       
     </div>

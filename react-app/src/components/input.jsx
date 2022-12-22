@@ -1,7 +1,7 @@
 
 const Input = (props) => {
     let varient;
-    if (props.varient==="login") varient="border-4 border-gray-100 w-full rounded-sm p-2 focus:outline-yellow-600"
+    if (props.varient==="login") varient="border-4 border-gray-100 w-full rounded-sm p-2 focus:outline-yellow-500"
   return (
     <input
       value={props.value}

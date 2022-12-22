@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./button";
+import { Link } from "react-router-dom";
 
 function Card(props) {
   return (
@@ -7,22 +8,17 @@ function Card(props) {
       {/* <!-- product image --> */}
       <div className="relative">
         <img src={props.image} />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-          <a
-            href="view.html"
-            className="text-white text-lg w-9 h-9 rounded-full bg-primary hover:bg-gray-800 transition flex items-center justify-center"
-          >
-            <i className="fas fa-search"></i>
-          </a>
+        <div onClick={props.onClick} className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+          <i className="fas fa-search text-white text-lg w-9 h-9 rounded-full bg-primary hover:bg-gray-800 transition flex items-center justify-center"></i>
         </div>
       </div>
       {/* <!-- product image end --> */}
       {/* <!-- product content --> */}
       <div className="pt-4 pb-3 px-4">
-          <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
+          <h4 className="uppercase font-medium text-md mb-2 text-gray-800 hover:text-primary transition line-clamp-2">
             {props.name}
           </h4>
-          <p className="text-gray-500 text-sm line-clamp-1">{props.description}</p>
+          <p className="text-gray-500 text-sm line-clamp-3">{props.description}</p>
         <div className="flex items-baseline mb-1 space-x-2">
           <p className="text-xl text-primary font-roboto font-semibold">${props.price}</p>
         </div>

@@ -1,12 +1,41 @@
 import React from 'react'
+import Header from "../../components/header";
+import Navbar from "../../components/navbar";
+import Mobilenav from '../../components/mobilenav';
+import Footer from "../../components/footer";
 import Card from '../../components/card'
-import bannerimg2 from '../../assets/BannerImage2.jpg'
 import Input from '../../components/input'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
+import {useState} from 'react'
 
-function shop() {
+function Shop(props) {
+    const products= props.products
+    const [selectedCategories,setSelectedCategories]= useState([])
+    console.log("selectedCategories")
+    console.log(selectedCategories)
+    const filteredProducts= products.filter((product)=>{
+        return product.brand==="Asus"
+    })
+    const [minValue,setMinValue] = useState(0)
+    const [MaxValue,setMaxValue] = useState(0)
+    const navigate = useNavigate();
+    
+const filterationByCategory= products.filter(product=>{
+    return product.category.includes(selectedCategories)})
+
+
+    console.log(filterationByCategory)
+
+    function handleCategories(e){
+        const {value,checked} = e.target;
+        if(checked) setSelectedCategories([...selectedCategories,value])
+        else setSelectedCategories(selectedCategories.filter(category=>category!==value))
+        
+    }
   return (
     <div>
+        <Header/>
+        <Navbar/>
     {/* <!-- breadcrumb --> */}
     <div className="container mx-auto py-4 flex justify-between">
         <div className="flex gap-3 items-center">
@@ -32,10 +61,44 @@ function shop() {
                     <div className="space-y-2">
                         {/* <!-- single category --> */}
                         <div className="flex items-center">
-                            <input type="checkbox" id="Bedroom"
+                            <input type="checkbox" value={"monitors"} onChange={handleCategories} id="Bedroom"
                                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
-                            <label for="Bedroom" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
-                            <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                            <label  className="text-gray-600 ml-3 cursor-pointer">Monitors</label>
+                        </div>
+                       {/*  <!-- single category end --> */}
+                        {/* <!-- single category --> */}
+                        <div className="flex items-center">
+                            <input type="checkbox" value={"graphic cards"} onChange={handleCategories} id="Bedroom"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label  className="text-gray-600 ml-3 cursor-pointer">Graphic Cards</label>
+                        </div>
+                       {/*  <!-- single category end --> */}
+                        {/* <!-- single category --> */}
+                        <div className="flex items-center">
+                            <input type="checkbox" value={"motherboards"} onChange={handleCategories} id="Bedroom"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label  className="text-gray-600 ml-3 cursor-pointer">Motherboards</label>
+                        </div>
+                       {/*  <!-- single category end --> */}
+                        {/* <!-- single category --> */}
+                        <div className="flex items-center">
+                            <input type="checkbox" value={"monitors"} onChange={handleCategories} id="Bedroom"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label  className="text-gray-600 ml-3 cursor-pointer">Monitors</label>
+                        </div>
+                       {/*  <!-- single category end --> */}
+                        {/* <!-- single category --> */}
+                        <div className="flex items-center">
+                            <input type="checkbox" value={"processors"} onChange={handleCategories} id="Bedroom"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label  className="text-gray-600 ml-3 cursor-pointer">Processors</label>
+                        </div>
+                       {/*  <!-- single category end --> */}
+                        {/* <!-- single category --> */}
+                        <div className="flex items-center">
+                            <input type="checkbox" value={"periphrals"} onChange={handleCategories} id="Bedroom"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label  className="text-gray-600 ml-3 cursor-pointer">Periphrals</label>
                         </div>
                        {/*  <!-- single category end --> */}
                     </div>
@@ -49,8 +112,49 @@ function shop() {
                         <div className="flex items-center">
                             <input type="checkbox" id="Dominik"
                                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
-                            <label for="Dominik" className="text-gray-600 ml-3 cursor-pointer">Dominik</label>
-                            <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                            <label className="text-gray-600 ml-3 cursor-pointer">Dominik</label>
+                        </div>
+                       {/*  <!-- single brand name end --> */}
+                       {/* <!-- single brand name --> */}
+                       <div className="flex items-center">
+                            <input type="checkbox" id="Dominik"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label className="text-gray-600 ml-3 cursor-pointer">Asus</label>
+                        </div>
+                       {/*  <!-- single brand name end --> */}
+                       {/* <!-- single brand name --> */}
+                       <div className="flex items-center">
+                            <input type="checkbox" id="Dominik"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label className="text-gray-600 ml-3 cursor-pointer">Intel</label>
+                        </div>
+                       {/*  <!-- single brand name end --> */}
+                       {/* <!-- single brand name --> */}
+                       <div className="flex items-center">
+                            <input type="checkbox" id="Dominik"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label className="text-gray-600 ml-3 cursor-pointer">ViewSonic</label>
+                        </div>
+                       {/*  <!-- single brand name end --> */}
+                       {/* <!-- single brand name --> */}
+                       <div className="flex items-center">
+                            <input type="checkbox" id="Dominik"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label className="text-gray-600 ml-3 cursor-pointer">Samsung</label>
+                        </div>
+                       {/*  <!-- single brand name end --> */}
+                       {/* <!-- single brand name --> */}
+                       <div className="flex items-center">
+                            <input type="checkbox" id="Dominik"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label className="text-gray-600 ml-3 cursor-pointer">BenQ</label>
+                        </div>
+                       {/*  <!-- single brand name end --> */}
+                       {/* <!-- single brand name --> */}
+                       <div className="flex items-center">
+                            <input type="checkbox" id="Dominik"
+                                className="text-primary focus:ring-0 rounded-sm cursor-pointer"/>
+                            <label className="text-gray-600 ml-3 cursor-pointer">Zotac</label>
                         </div>
                        {/*  <!-- single brand name end --> */}
                      
@@ -81,31 +185,25 @@ function shop() {
                     className="bg-primary border border-primary text-white px-10 py-3 font-medium rounded uppercase hover:bg-transparent hover:text-primary transition lg:hidden text-sm mr-3 focus:outline-none">
                     Filter
                 </button>
-                <select
-                    className="w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary">
-                    <option>Default sorting</option>
-                    <option>Price low-high</option>
-                    <option>Price high-low</option>
-                    <option>Latest product</option>
-                </select>
+                
             </div>
             {/* <!-- sorting end --> */}
             {/* <!-- product wrapper --> */}
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 gap-6">
-                <Card image={bannerimg2}/>
-                <Card image={bannerimg2}/>
-                <Card image={bannerimg2}/>
-                <Card image={bannerimg2}/>
-                <Card image={bannerimg2}/>
-                <Card image={bannerimg2}/>
-            </div>
+            {products.length>0? <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
+           {filterationByCategory.map((item) => (
+            <Card key={item.id} image={item.img1} price={item.price} name={item.name} description={item.description} onClick={()=> navigate(`/product/${item.name}`)}/>
+          ))}
+        </div>:
+        <h1 className="text-3xl text-center text-gray-500">No Products to Display</h1>
+        }
            {/*  <!-- product wrapper end --> */}
         </div>
         {/* <!-- products end --> */}
     </div>
-    
+    <Mobilenav/>
+    <Footer/>
     </div>
   )
 }
 
-export default shop
+export default Shop

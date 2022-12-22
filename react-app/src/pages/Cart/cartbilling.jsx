@@ -39,7 +39,9 @@ function submit(e) {
   }
  // else if ( password !==confirmPassword ) toast.error("Your Password does not match",{autoClose:3000});
   // else if ( existEmail !==undefined ) toast.error("Account already registered on this email",{autoClose:3000});
-   else {
+   else if(cartdata.length===0) toast.error("No Items available in the cart",{autoClose:3000})
+
+   else{
     const OrderDetails = {
       email:email,
       firstname:firstName,
@@ -49,6 +51,8 @@ function submit(e) {
       postalCode: postalCode,
       phoneNumber: phoneNumber,
       totalprice:cartTotal[0],
+      status:"pending",
+      orderdate:new Date().toLocaleDateString(),
       products:cartdata
       
     };
@@ -60,7 +64,8 @@ function submit(e) {
       body: JSON.stringify(OrderDetails),
     }).then((res) => {
       if (res.status === 201) {
-        toast.success("Successfully Placed an order",{autoClose:3000, onClose:()=>{console.log("order Placed")/* navigate("/login") */}});
+        navigate("/orderplaced");
+        cartdata.length=0;
       }
     });
   }

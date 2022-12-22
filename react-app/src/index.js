@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-toastify/dist/ReactToastify.css'
+
+
 /* import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckSquare, faCoffee, faSearch } from '@fortawesome/free-solid-svg-icons'
 import {faHeart } from '@fortawesome/free-regular-svg-icons'

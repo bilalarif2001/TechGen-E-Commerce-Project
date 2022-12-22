@@ -1,5 +1,4 @@
 import React from 'react'
-import img from '../../assets/BannerImage2.jpg'
 import {useState,useEffect} from 'react'
 import cartdata from './cartdata'
 
@@ -34,12 +33,12 @@ reupdateCartOnDelete()
        </div>
        {/*  <!-- cart image --> */}
         <div className="w-32 flex-shrink-0">
-            <img src={img} className="w-full"/>
+            <img src={product.img1} className="w-full"/>
         </div>
         {/* <!-- cart image end --> */}
         {/* <!-- cart content --> */}
         <div className="md:w-2/4 w-full">
-            <h2 className="text-gray-800 mb-3 xl:text-xl textl-lg font-medium uppercase">
+            <h2 className="text-gray-800 mb-3 xl:text-md  font-medium uppercase">
                 {product.name}
             </h2>
             <p className="text-primary font-semibold ">${product.price}</p>

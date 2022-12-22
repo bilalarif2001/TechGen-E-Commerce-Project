@@ -1,12 +1,15 @@
 import React from 'react'
+import Header from "../../components/header";
+import Navbar from "../../components/navbar";
+import Mobilenav from '../../components/mobilenav';
 import Button from '../../components/button';
-import img from '../../assets/BannerImage2.jpg'
 import {useState,useEffect} from 'react'
 import cartdata from './cartdata';
 import Cartproducts from './cartproducts';
 import cartTotal from './carttotal';
 import {ToastContainer,toast} from 'react-toastify'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Footer from '../../components/footer';
 
 function ShoppingCart() {
     const navigate= useNavigate();
@@ -53,6 +56,9 @@ function ShoppingCart() {
     }
 
   return (
+    <div>
+    <Header/>
+    <Navbar/>
     <div className='container mx-auto'>
       {/* Shopping cart  */}
       <div className=" lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
@@ -67,7 +73,7 @@ function ShoppingCart() {
             {/* <!-- cart title end --> */}
 
             {/* <!-- shipping carts --> */}
-           {cartdata.length>0?cartdata.map((product,index)=>(<Cartproducts product={product} key={index} reupdateCartByQuantity={reupdateCartByQuantity} reupdateCartOnDelete={reupdateCartOnDelete} index={index}/>)):<div className='text-2xl text-center font-bold'>No items to display</div>}
+           {cartdata.length>0?cartdata.map((product,index)=>(<Cartproducts product={product} key={index} reupdateCartByQuantity={reupdateCartByQuantity} reupdateCartOnDelete={reupdateCartOnDelete} index={index}/>)):<div className='text-2xl text-center font-bold text-gray-500'>{"Oops! Your Cart is Empty. "}<Link className='hover:text-rose-600' to={'/shop'}>{"Add Something? :)"}</Link></div>}
             {/* <!-- shipping carts end --> */}
         </div>
         <div className="xl:col-span-3 lg:col-span-4 border border-gray-200 px-4 py-4 rounded mt-6 lg:mt-0">
@@ -75,7 +81,7 @@ function ShoppingCart() {
             <div className="space-y-1 text-gray-600 pb-3 border-b border-gray-200">
                 <div className="flex justify-between font-medium">
                     <p>Subtotal</p>
-                    <p>${sum}</p>
+                    <p>${sum.toFixed(2)}</p>
                 </div>
                 <div className="flex justify-between">
                     <p>Total Products</p>
@@ -88,7 +94,7 @@ function ShoppingCart() {
             </div>
             <div className="flex justify-between my-3 text-rose-500 font-bold uppercase hover:text-red-700">
                 <h4>Total</h4>
-                <h4>${sum}</h4>
+                <h4>${sum.toFixed(2)}</h4>
             </div>
 
             {/* <!-- searchbar --> */}
@@ -104,6 +110,9 @@ function ShoppingCart() {
         </div>
       </div>
       <ToastContainer/>
+    </div>
+    <Mobilenav/>
+    <Footer/>
     </div>
   )
 }
