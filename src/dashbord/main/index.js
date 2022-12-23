@@ -10,7 +10,8 @@ const Dashbord = () => {
         </h1>
         <Button
           children="Log Out"
-          varient="text-xl p-2 bg-white text-blue-500 w-32 rounded-md   "
+          varient=" 
+          inline-flex items-center rounded border border-transparent bg-blue-100 px-4 py-1.5 text-base text-center font-medium text-blue-500 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ml-4"
         />
       </div>
       <div className="flex pt-[76px] fixed w-full h-screen">

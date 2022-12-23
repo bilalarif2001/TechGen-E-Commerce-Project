@@ -10,7 +10,7 @@ const User = () => {
 
   const [pageNumber, setPageNumber] = useState(0);
   // const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState();
 
   const userperPage = 5;
   const vistedPages = pageNumber * userperPage;
@@ -50,8 +50,9 @@ const User = () => {
     });
   };
   const UnblockBlockUser = (e) => {
-    console.log(e.id);
+    console.log(e.id, "id");
     const data = { ...e, block: false };
+    console.log(data);
     fetch(`http://localhost:5000/users/${e.id} `, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -83,25 +84,25 @@ const User = () => {
         <table className="w-full text-sm text-left text-black  mt-6">
           <thead className="text-md text-white uppercase bg-blue-500 ">
             <tr>
-              <th scope="col" className="py-6 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 First Name
               </th>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 Email
               </th>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 Gender
               </th>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 Age
               </th>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 Block status
               </th>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 Block User
               </th>
-              <th scope="col" className="py-3 ">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 Unblock User
               </th>
             </tr>
@@ -112,23 +113,33 @@ const User = () => {
               .slice(vistedPages, vistedPages + userperPage)
               .map((item, id) => (
                 <tr className="bg-white border-b " key={id}>
-                  <td className="py-4 px-6">{item.firstname}</td>
-                  <td className="py-4 px-6">{item.email}</td>
-                  <td className="py-4 px-6">{item.gender}</td>
-                  <td className="py-4 px-6">{item.age}</td>
-                  <td className="py-4 px-6">{item.block.toString()}</td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.firstname}
+                  </td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.email}
+                  </td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.gender}
+                  </td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.age}
+                  </td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.block.toString()}
+                  </td>
 
                   <td>
                     <Button
                       children="Block User"
-                      varient="text-white bg-blue-500 p-2  w-32 mt-2 ml-4 rounded-md"
+                      varient="inline-flex items-center rounded border border-transparent bg-blue-100 px-2.5 py-1.5 text-xs font-medium text-blue-500 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ml-5"
                       onClick={(e) => BlockUser(item)}
                     />
                   </td>
                   <td>
                     <Button
-                      children="Unbslock User"
-                      varient="text-white bg-blue-500 p-2  w-32 mt-2  rounded-md"
+                      children="Unblock User"
+                      varient="inline-flex items-center rounded border border-transparent bg-blue-100 px-2.5 py-1.5 text-xs font-medium text-blue-500 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ml-4"
                       onClick={(e) => UnblockBlockUser(item)}
                     />
                   </td>

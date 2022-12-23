@@ -13,7 +13,7 @@ const Sidebar = () => {
         className="  w-full cursor-pointer   flex items-center justify-start  gap-4  rounded-md  text-xl px-4 text-black hover:px-4 hover:bg-gray-100  hover:py-4     "
       >
         <AiOutlineUser className="hover:text-yellow-500" />
-        Dashbord
+        Dashboard
       </Link>
       <Link
         to={"user"}

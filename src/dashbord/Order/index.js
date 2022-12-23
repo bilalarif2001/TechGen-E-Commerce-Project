@@ -27,7 +27,6 @@ const Order = () => {
     transform: "translate(-50%, -50%)",
     width: 700,
     bgcolor: "background.paper",
-    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
   };
@@ -65,10 +64,24 @@ const Order = () => {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updateData),
-    })
+    }).then((response) => response.json());
+    // .then((data) => console.log(data));
+
+    fetch(`http://localhost:5000/orders/${e.id}`)
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .error((err) => console.log(err));
+      .then((data) => {
+        data?.products?.map((i) => {
+          const updateStock = i.stock - i.quantity;
+
+          fetch(`http://localhost:5000/products/${i.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...i, stock: updateStock }),
+          })
+            .then((response) => response.json())
+            .then((data) => console.log(data, "produxts"));
+        });
+      });
   };
 
   const OrderCancel = (e) => {
@@ -99,20 +112,20 @@ const Order = () => {
         <table className="w-full text-lg text-left text-black  mt-6">
           <thead className="text-lg text-white  bg-blue-500 ">
             <tr>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 Id
               </th>
-              <th scope="col" className="py-6 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 First Name
               </th>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 Email
               </th>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 City
               </th>
 
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-6 text-lg font-light">
                 CheckOder
               </th>
             </tr>
@@ -122,13 +135,21 @@ const Order = () => {
               .slice(vistedPages, vistedPages + userperPage)
               .map((item) => (
                 <tr className="bg-white border-b  " key={item.id}>
-                  <td className="py-4 px-6">{item.id}</td>
-                  <td className="py-4 px-6">{item.firstname}</td>
-                  <td className="py-4 px-6">{item.email}</td>
-                  <td className="py-4 px-6">{item.city}</td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.id}
+                  </td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.firstname}
+                  </td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.email}
+                  </td>
+                  <td className="py-4 px-6 text-lg font-light text-gray-600">
+                    {item.city}
+                  </td>
                   <td>
                     <Button
-                      varient="bg-blue-500 p-3 my-1 rounded-md text-white ml-4"
+                      varient="inline-flex items-center rounded border border-transparent bg-blue-100 px-2.5 py-1.5 text-xs font-medium text-blue-500 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ml-4"
                       onClick={(e) => {
                         CheckOurder(item);
                       }}
@@ -149,7 +170,7 @@ const Order = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className="flex justify-end border-2 border-black -mt-8 absolute right-0  p-2 bg-gray-200  ">
+          <div className="flex justify-end  -mt-8 absolute right-0  p-2 bg-gray-200  ">
             <Button
               children=<RxCross2 />
               className="text-2xl "
@@ -164,26 +185,25 @@ const Order = () => {
             {orderData.length > 0 &&
               orderData.map((item, id) => (
                 <div key={id} className="flex justify-between  w-full">
-                  <p>
+                  <p className=" text-lg font-light text-gray-600">
                     <span className="mr-3">OrderId:</span>
                     {item.id}
                   </p>
-                  <p>{item.email}</p>
+                  <p className=" text-lg font-light text-gray-600">
+                    {item.email}
+                  </p>
                 </div>
               ))}
           </div>
           <div className="mt-3">
             <table className="w-full text-lg text-left text-black  mt-1">
               <thead className="text-lg text-white  bg-blue-500   ">
-                <tr className="flex justify-between  border-2 w-full">
-                  <th scope="col" className=" px-6">
+                <tr className="flex justify-between  w-full">
+                  <th scope="col" className="py-3 px-6 text-lg font-light">
                     Name
                   </th>
-                  <th scope="col" className=" ">
+                  <th scope="col" className="py-3 px-6 text-lg font-light">
                     Brand
-                  </th>
-                  <th scope="col" className=" ">
-                    Total
                   </th>
                 </tr>
               </thead>
@@ -194,13 +214,17 @@ const Order = () => {
                       key={id}
                       className="border space-t-2 flex justify-between"
                     >
-                      <td>{i.name}</td>
-                      <td>{i.brand}</td>
+                      <td className="py-4 px-6 text-lg font-light text-gray-600">
+                        {i.name}
+                      </td>
+                      <td className="py-4 px-6 text-lg font-light text-gray-600">
+                        {i.brand}
+                      </td>
                     </tr>
                   ))}
               </tbody>
             </table>
-            <h1 className="mt-2 ">
+            <h1 className="mt-2  text-lg font-light text-gray-600 ">
               <span className="mr-3">TotalAmont:</span>
               {orderData.length > 0 && orderData[0].totalprice}
             </h1>
@@ -208,12 +232,12 @@ const Order = () => {
           <div className="flex items-center gap-3 justify-start mt-2">
             <Button
               children="Confrim"
-              varient="bg-blue-500 p-3 my-1 rounded-md text-white "
+              varient="inline-flex items-center rounded border border-transparent bg-blue-100 px-2.5 py-1.5 text-sm font-medium text-blue-500 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 "
               onClick={(e) => OrderConfirm(orderData[0])}
             />
             <Button
               children="Cancel"
-              varient="bg-blue-500 p-3 my-1 rounded-md text-white "
+              varient="inline-flex items-center rounded border border-transparent bg-blue-100 px-2.5 py-1.5 text-sm font-medium text-blue-500 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 "
               onClick={(e) => OrderCancel(orderData[0])}
             />
           </div>

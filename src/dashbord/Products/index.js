@@ -24,7 +24,11 @@ const style = {
 
 const Products = () => {
   const [name, setName] = useState();
-  const [img, setImg] = useState();
+  const [img1, setImg1] = useState();
+  const [img2, setImg2] = useState();
+  const [img3, setImg3] = useState();
+  const [img4, setImg4] = useState();
+
   const [brand, setBrand] = useState("select company");
   const [category, setCategory] = useState("slect categoru");
   const [stock, setStock] = useState();
@@ -41,8 +45,11 @@ const Products = () => {
 
     if (
       name === "" ||
-      img === "" ||
-      img === "" ||
+      // img === "" ||
+      img1 === "" ||
+      img2 === "" ||
+      img3 === "" ||
+      img4 === "" ||
       brand === "" ||
       category === "" ||
       stock === "" ||
@@ -52,7 +59,18 @@ const Products = () => {
         position: toast.POSITION.TOP_RIGHT,
       });
     } else {
-      const data = { name, img, brand, category, stock, price, quantity: 0 };
+      const data = {
+        name,
+        img1,
+        img2,
+        img3,
+        img4,
+        brand,
+        category,
+        stock,
+        price,
+        quantity: 0,
+      };
       console.log(data);
       fetch("http://localhost:5000/products", {
         method: "POST",
@@ -77,7 +95,11 @@ const Products = () => {
       setStock("");
       setprice("");
       setColor("");
-      setImg("");
+      setImg1("");
+      setImg2("");
+      setImg3("");
+      setImg4("");
+
       handleClose();
     }
   };
@@ -87,7 +109,7 @@ const Products = () => {
         <h1 className="text-start  text-4xl  text-blue-500 ">Product</h1>
         <Button
           children="Add Product"
-          varient=" p-2 w-36 bg-blue-500 hover:bg-white text-white hover:text-blue-500 hover:border-2 hover:border-blue-500 rounded-md text-xl "
+          varient="inline-flex items-center rounded border border-transparent bg-blue-100 px-4 py-1.5 text-base text-center font-medium text-blue-500 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ml-4"
           onClick={handleOpen}
         />
       </div>
@@ -120,13 +142,33 @@ const Products = () => {
                     onChange={(e) => setName(e.target.value)}
                   />
                   <Input
-                    placeholder="Img Link"
+                    placeholder="Img Link 1"
                     type="text"
-                    value={img}
-                    onChange={(e) => setImg(e.target.value)}
+                    value={img1}
+                    onChange={(e) => setImg1(e.target.value)}
                   />
                 </div>
                 <div className="flex gap-4">
+                  <Input
+                    placeholder="Img Link 3"
+                    type="text"
+                    value={img2}
+                    onChange={(e) => setImg2(e.target.value)}
+                  />
+                  <Input
+                    placeholder="Img Link 3"
+                    type="text"
+                    value={img3}
+                    onChange={(e) => setImg3(e.target.value)}
+                  />
+                </div>
+                <div className="flex gap-4">
+                  <Input
+                    placeholder="Img Link 4"
+                    type="text"
+                    value={img4}
+                    onChange={(e) => setImg4(e.target.value)}
+                  />
                   <select
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
@@ -137,6 +179,8 @@ const Products = () => {
                     <option value="Hp">Hp</option>
                     <option value="lenovo">Lenovo</option>
                   </select>
+                </div>
+                <div className="flex gap-4">
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
@@ -147,8 +191,6 @@ const Products = () => {
                     <option value="mouse">Mouse</option>
                     <option value="keybord">Keybord</option>
                   </select>
-                </div>
-                <div className="flex gap-4">
                   <Input
                     placeholder="stock"
                     type="number"
@@ -156,6 +198,16 @@ const Products = () => {
                     value={stock}
                     onChange={(e) => setStock(e.target.value)}
                   />
+                </div>
+                <div className="flex gap-4">
+                  <Input
+                    placeholder="price"
+                    type="number"
+                    min="0"
+                    value={price}
+                    onChange={(e) => setprice(e.target.value)}
+                  />
+
                   <Input
                     placeholder="price"
                     type="number"
@@ -164,11 +216,10 @@ const Products = () => {
                     onChange={(e) => setprice(e.target.value)}
                   />
                 </div>
-                <div className="flex gap-4"></div>
                 <Button
                   type="submit"
                   children="Add Product"
-                  varient=" p-2 w-36 bg-blue-500 hover:bg-white text-white hover:text-blue-500 hover:border-2 hover:border-blue-500 rounded-md text-xl "
+                  varient="inline-flex items-center rounded border border-transparent bg-blue-100 px-4 py-1.5 text-base text-center font-medium text-blue-500 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ml-4 w-32"
                 />
               </div>
               <ToastContainer />

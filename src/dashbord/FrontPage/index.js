@@ -1,6 +1,11 @@
-import { Bar } from "react-chartjs-2";
-
+import RecentUser from "./recentUser";
+import RecentOrder from "./recentOrder";
 const FrontPage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <RecentUser />
+      <RecentOrder />
+    </div>
+  );
 };
 export default FrontPage;

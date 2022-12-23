@@ -22,8 +22,7 @@ import FrontPage from "./dashbord/FrontPage";
 import Order from "./dashbord/Order";
 function App() {
   return (
-    /*  */
-    <div className="">
+    <div>
       <Routes>
         <Route path="/" element={Home} />
         <Route path="/aboutUs" element={<AboutUs />} />
