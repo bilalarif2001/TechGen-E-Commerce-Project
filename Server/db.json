@@ -221,6 +221,44 @@
         }
       ],
       "id": 1
+    },
+    {
+      "email": "bilal@gmail.com",
+      "firstname": "Bilal",
+      "lastname": "Arif",
+      "address": "H# 326 block 2 sector c2 Township, Lahore",
+      "city": "Lahore",
+      "postalCode": "54000",
+      "phoneNumber": "03072506432",
+      "totalprice": 241.99,
+      "status": "pending",
+      "orderdate": "12/23/2022",
+      "products": [
+        {
+          "id": 2,
+          "name": "Samsung LF27T350FHMXZN 27 LED Monitor with Borderless Design - FreeSync FHD IPS",
+          "img1": "https://iili.io/Hz0O8nj.jpg",
+          "img2": "https://iili.io/Hz0OrFV.jpg",
+          "img3": "https://iili.io/Hz0OU6Q.jpg",
+          "img4": "https://iili.io/Hz0OSMx.jpg",
+          "category": "monitors",
+          "description": "Incredible graphics performance MacBook Air can take on more graphics-intensive projects than ever. For the first time, content creators can edit and seamlessly play back multiple streams of full‑quality 4K video without dropping a frame",
+          "brand": "samsung",
+          "quantity": 1,
+          "stock": 2,
+          "price": 241.99,
+          "totalsold": 2,
+          "userrating": [
+            {
+              "id": 1,
+              "name": "firstname",
+              "rating": 3,
+              "comment": "comment"
+            }
+          ]
+        }
+      ],
+      "id": 2
     }
   ]
 }

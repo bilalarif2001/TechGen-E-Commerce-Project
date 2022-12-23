@@ -6,7 +6,9 @@ import Footer from "../../components/footer";
 import Card from '../../components/card'
 import Input from '../../components/input'
 import { Link,useNavigate } from 'react-router-dom'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import globalsearch from './globalsearch';
+
 
 function Shop(props) {
     const products= props.products
@@ -18,10 +20,18 @@ function Shop(props) {
     })
     const [minValue,setMinValue] = useState(0)
     const [MaxValue,setMaxValue] = useState(0)
+    const [filteredSearch,setFilteredSearch]= useState([])
     const navigate = useNavigate();
-    
+    console.log(globalsearch)
 const filterationByCategory= products.filter(product=>{
     return product.category.includes(selectedCategories)})
+
+    useEffect(()=>{
+setFilteredSearch(globalsearch[0])
+
+    },[globalsearch])
+
+
 
 
     console.log(filterationByCategory)

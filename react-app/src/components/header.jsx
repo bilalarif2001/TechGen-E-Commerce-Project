@@ -3,13 +3,39 @@ import Button from './button'
 import { Link } from 'react-router-dom'
 import cartdata from '../pages/Cart/cartdata'
 import {useState,useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
+import globalsearch from '../pages/Shop/globalsearch'
 
-function Header() {
+function Header(props) {
+    const navigate= useNavigate()
     const [cartValue,setCartValue] = useState(0)
-    console.log(cartdata.length)
+    const [products,setProducts] = useState([])
+    const [search,setSearch] = useState("")
     useEffect(()=>{
         setCartValue(cartdata.length)
-    },[cartdata.length])
+    },[cartdata])
+
+    function fetchProducts() {
+        fetch("http://localhost:5000/products")
+          .then((response) => response.json())
+          .then((json) => setProducts(json));
+      }
+    
+      useEffect(() => {
+        fetchProducts();
+      }, []);
+
+      
+
+      function handleSearch(e){
+        setSearch(e.target.value)
+
+        const filteredProduct= products.filter((product)=>{
+            return product.name.toLowerCase().includes(search.toLowerCase())
+        })
+        globalsearch[0]=filteredProduct
+      }
+
   return (
     <header className="py-4 shadow-sm bg-slate-600">
         <div className="container mx-auto flex items-center justify-between">
@@ -27,8 +53,11 @@ function Header() {
                 </span>
                 <input type="text"
                     className="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md focus:ring-primary focus:outline-0"
-                    placeholder="Search the Entire Store"/>
-                <Button type="submit" varient="yellow">
+                    placeholder="Search the Entire Store"
+                    onChange={handleSearch}
+                    />
+
+                <Button type="submit" varient="yellow" onClick={()=>{navigate('/shop')}}>
                     Search
                 </Button>
             </div>
