@@ -1,0 +1,360 @@
+{
+  "users": [
+    {
+      "firstname": "Bilal",
+      "lastname": "Arif",
+      "gender": "Male",
+      "birthday": "2022-12-01",
+      "email": "bilal@gmail.com",
+      "password": "abc",
+      "block": false,
+      "id": 1
+    },
+    {
+      "firstname": "Naveed",
+      "lastname": "Arif",
+      "gender": "Male",
+      "birthday": "2022-12-01",
+      "email": "naveed@gmail.com",
+      "password": "abc",
+      "block": false,
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "ViewSonic VA2732-MH 27” IPS Monitor Featuring HDMI and Speakers Adaptive Sync",
+      "img1": "https://iili.io/Hz0bphG.jpg",
+      "img2": "https://iili.io/Hz0mHB4.jpg",
+      "img3": "https://iili.io/Hz0md42.jpg",
+      "img4": "https://iili.io/Hz0m32S.jpg",
+      "category": "monitors",
+      "description": "The ViewSonic VA2732-MH is a 27” (27” viewable) Full HD Monitor with IPS technology and flexible connectivity for use in the office or at home. SuperClear® IPS Technology for richer, sharper colors at wide angles. Full HD 1080p resolution. 75Hz Refresh rate delivers fluid visuals. Adaptive sync to eliminate screen tearing & reduce stuttering",
+      "brand": "viewsonic",
+      "quantity": 1,
+      "stock": 9,
+      "price": 234.99,
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Samsung LF27T350FHMXZN 27 LED Monitor with Borderless Design - FreeSync FHD IPS",
+      "img1": "https://iili.io/Hz0O8nj.jpg",
+      "img2": "https://iili.io/Hz0OrFV.jpg",
+      "img3": "https://iili.io/Hz0OU6Q.jpg",
+      "img4": "https://iili.io/Hz0OSMx.jpg",
+      "category": "monitors",
+      "description": "Incredible graphics performance MacBook Air can take on more graphics-intensive projects than ever. For the first time, content creators can edit and seamlessly play back multiple streams of full‑quality 4K video without dropping a frame",
+      "brand": "samsung",
+      "quantity": 1,
+      "stock": 1,
+      "price": 241.99,
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "BenQ EX2510S MOBIUZ 24.5 1ms IPS 165Hz Gaming Monitor - FHD HDRi - AMD FreeSync Premium",
+      "img1": "https://iili.io/Hz15gUl.jpg",
+      "img2": "https://iili.io/Hz154J2.jpg",
+      "img3": "https://iili.io/Hz15PO7.jpg",
+      "img4": "https://iili.io/Hz156RS.jpg",
+      "category": "monitors",
+      "description": "Explore new worlds and overcome challenging adventures. Stunning graphics, amazing audio, and flawless performance set you up for limitless thrills.. 24.5 inch IPS LED backlight 1920x1080. HDR10. Color Gamut 99% sRGB. Built-in Speaker 2.5Wx2",
+      "brand": "benq",
+      "quantity": 1,
+      "stock": 9,
+      "price": 410.99,
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Intel Core i3-12100 Processor LGA1700 12th Gen 4 Cores 8 Threads",
+      "img1": "https://iili.io/HzGzTcN.jpg",
+      "img2": "https://iili.io/HzGznoJ.jpg",
+      "img3": "https://iili.io/HzGzxPR.jpg",
+      "img4": "https://iili.io/HzGzIFp.jpg",
+      "category": "processors",
+      "description": "Power up your productivity, gaming, and content-creation experiences by installing the Intel Core i3-12100 3.3 GHz Quad-Core LGA 1700 Processor into your desktop computer system. 12M Cache, up to 4.30 GHz. 4 Cores - 8 Threads. 12 MB Intel® Smart Cache. Memory Types: Up to DDR5 4800 MT/s Up to DDR4 3200 MT/s",
+      "brand": "intel",
+      "quantity": 0,
+      "stock": 10,
+      "price": 112.99,
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "ZOTAC GAMING GeForce RTX 4090 Trinity OC Video Graphics Card - ZT-D40900J-10P - 24GB GDDR6X 384-bit - OC Edition - Dual BIOS",
+      "img1": "https://iili.io/HzG5lVe.jpg",
+      "img2": "https://iili.io/HzG50iu.jpg",
+      "img3": "https://iili.io/HzG5EKb.jpg",
+      "img4": "https://iili.io/HzG5Glj.jpg",
+      "category": "graphic cards",
+      "description": "Leveraging an all-new aerodynamic-inspired design, the ZOTAC GAMING GeForce RTX 4090 Trinity OC utilizes the world’s most advanced gaming GPU powered by the NVIDIA Ada Lovelace architecture and DLSS 3. Using cutting-edge cooling technologies derived from the flagship model, the Trinity OC packs the punch to offer gamers the needed blistering FPS in the latest titles.",
+      "brand": "zotac",
+      "quantity": 0,
+      "stock": 10,
+      "price": 1499.99,
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Asus ROG Strix X570-F Gaming AMD ATX Gaming Motherboard - 90MB1160-M0UAY0",
+      "img1": "https://iili.io/HzG4ZCB.jpg",
+      "img2": "https://iili.io/HzG4iTx.jpg",
+      "img3": "https://iili.io/HzG4D41.jpg",
+      "img4": "https://iili.io/HzG4m3F.jpg",
+      "category": "motherboards",
+      "description": "AMD X570 ATX gaming motherboard with PCIe 4.0, Intel Gigabit Ethernet, 14 power stages, dual M.2 with heatsinks, SATA 6Gb/s, USB 3.2 Gen 2 and Aura Sync RGB lighting. AM4 socket. Aura Sync RGB. Optimal Power Solution. Comprehensive cooling",
+      "brand": "asus",
+      "quantity": 0,
+      "stock": 10,
+      "price": 449.99,
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Asus ROG Strix Scope Deluxe RGB Wired Mechanical Gaming Keyboard | Cherry MX RGB Red Switch - XA04 - 90MP01I0-B0UA00",
+      "img1": "https://iili.io/HzGS7oP.jpg",
+      "img2": "https://iili.io/HzGSYV1.jpg",
+      "img3": "https://iili.io/HzGSaiF.jpg",
+      "img4": "https://iili.io/HzGSlKg.jpg",
+      "category": "periphrals",
+      "description": "ROG Strix Scope Deluxe RGB wired mechanical gaming keyboard with Cherry MX switches, aluminium frame, ergonomic wrist rest, Aura Sync lighting and additional silver WASD for FPS games.. Built for Action. Crafted for Comfort.. Built For FPS Gamers. Ready for Work or Play. Cherry MX RGB Mechanical Switches",
+      "brand": "asus",
+      "quantity": 0,
+      "stock": 10,
+      "price": 112.99,
+      "totalsold": 2,
+      "userrating": [
+        {
+          "id": 1,
+          "name": "firstname",
+          "rating": 3,
+          "comment": "comment"
+        }
+      ]
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "firstname": "Bilal",
+      "email": "techgen@gmail.com",
+      "password": "abcdef",
+      "admin": true
+    }
+  ],
+  "orders": [
+    {
+      "email": "bilal@gmail.com",
+      "firstname": "Bilal",
+      "lastname": "Arif",
+      "address": "H# 326 block 2 sector c2 Township, Lahore",
+      "city": "Lahore",
+      "postalCode": "54000",
+      "phoneNumber": "03072506432",
+      "totalprice": 234.99,
+      "status": "Rejected",
+      "orderdate": "12/23/2022",
+      "products": [
+        {
+          "id": 1,
+          "name": "ViewSonic VA2732-MH 27” IPS Monitor Featuring HDMI and Speakers Adaptive Sync",
+          "img1": "https://iili.io/Hz0bphG.jpg",
+          "img2": "https://iili.io/Hz0mHB4.jpg",
+          "img3": "https://iili.io/Hz0md42.jpg",
+          "img4": "https://iili.io/Hz0m32S.jpg",
+          "category": "monitors",
+          "description": "The ViewSonic VA2732-MH is a 27” (27” viewable) Full HD Monitor with IPS technology and flexible connectivity for use in the office or at home. SuperClear® IPS Technology for richer, sharper colors at wide angles. Full HD 1080p resolution. 75Hz Refresh rate delivers fluid visuals. Adaptive sync to eliminate screen tearing & reduce stuttering",
+          "brand": "viewsonic",
+          "quantity": 1,
+          "stock": 10,
+          "price": 234.99,
+          "totalsold": 2,
+          "userrating": [
+            {
+              "id": 1,
+              "name": "firstname",
+              "rating": 3,
+              "comment": "comment"
+            }
+          ]
+        }
+      ],
+      "id": 1,
+      "orderdescription": "Your Order is Rejected"
+    },
+    {
+      "email": "bilal@gmail.com",
+      "firstname": "Bilal",
+      "lastname": "Arif",
+      "address": "H# 326 block 2 sector c2 Township, Lahore",
+      "city": "Lahore",
+      "postalCode": "54000",
+      "phoneNumber": "03072506432",
+      "totalprice": 652.98,
+      "status": "accepted",
+      "orderdate": "12/24/2022",
+      "products": [
+        {
+          "id": 2,
+          "name": "Samsung LF27T350FHMXZN 27 LED Monitor with Borderless Design - FreeSync FHD IPS",
+          "img1": "https://iili.io/Hz0O8nj.jpg",
+          "img2": "https://iili.io/Hz0OrFV.jpg",
+          "img3": "https://iili.io/Hz0OU6Q.jpg",
+          "img4": "https://iili.io/Hz0OSMx.jpg",
+          "category": "monitors",
+          "description": "Incredible graphics performance MacBook Air can take on more graphics-intensive projects than ever. For the first time, content creators can edit and seamlessly play back multiple streams of full‑quality 4K video without dropping a frame",
+          "brand": "samsung",
+          "quantity": 1,
+          "stock": 2,
+          "price": 241.99,
+          "totalsold": 2,
+          "userrating": [
+            {
+              "id": 1,
+              "name": "firstname",
+              "rating": 3,
+              "comment": "comment"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "BenQ EX2510S MOBIUZ 24.5 1ms IPS 165Hz Gaming Monitor - FHD HDRi - AMD FreeSync Premium",
+          "img1": "https://iili.io/Hz15gUl.jpg",
+          "img2": "https://iili.io/Hz154J2.jpg",
+          "img3": "https://iili.io/Hz15PO7.jpg",
+          "img4": "https://iili.io/Hz156RS.jpg",
+          "category": "monitors",
+          "description": "Explore new worlds and overcome challenging adventures. Stunning graphics, amazing audio, and flawless performance set you up for limitless thrills.. 24.5 inch IPS LED backlight 1920x1080. HDR10. Color Gamut 99% sRGB. Built-in Speaker 2.5Wx2",
+          "brand": "benq",
+          "quantity": 1,
+          "stock": 10,
+          "price": 410.99,
+          "totalsold": 2,
+          "userrating": [
+            {
+              "id": 1,
+              "name": "firstname",
+              "rating": 3,
+              "comment": "comment"
+            }
+          ]
+        }
+      ],
+      "id": 2,
+      "orderdescription": "Your Order is Accepted"
+    },
+    {
+      "email": "bilal@gmail.com",
+      "firstname": "Bilal",
+      "lastname": "Arif",
+      "address": "H# 326 block 2 sector c2 Township, Lahor",
+      "city": "Lahore",
+      "postalCode": "8888888888",
+      "phoneNumber": "99999999999",
+      "totalprice": 645.98,
+      "status": "pending",
+      "orderdate": "12/24/2022",
+      "products": [
+        {
+          "id": 1,
+          "name": "ViewSonic VA2732-MH 27” IPS Monitor Featuring HDMI and Speakers Adaptive Sync",
+          "img1": "https://iili.io/Hz0bphG.jpg",
+          "img2": "https://iili.io/Hz0mHB4.jpg",
+          "img3": "https://iili.io/Hz0md42.jpg",
+          "img4": "https://iili.io/Hz0m32S.jpg",
+          "category": "monitors",
+          "description": "The ViewSonic VA2732-MH is a 27” (27” viewable) Full HD Monitor with IPS technology and flexible connectivity for use in the office or at home. SuperClear® IPS Technology for richer, sharper colors at wide angles. Full HD 1080p resolution. 75Hz Refresh rate delivers fluid visuals. Adaptive sync to eliminate screen tearing & reduce stuttering",
+          "brand": "viewsonic",
+          "quantity": 1,
+          "stock": 9,
+          "price": 234.99,
+          "totalsold": 2,
+          "userrating": [
+            {
+              "id": 1,
+              "name": "firstname",
+              "rating": 3,
+              "comment": "comment"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "BenQ EX2510S MOBIUZ 24.5 1ms IPS 165Hz Gaming Monitor - FHD HDRi - AMD FreeSync Premium",
+          "img1": "https://iili.io/Hz15gUl.jpg",
+          "img2": "https://iili.io/Hz154J2.jpg",
+          "img3": "https://iili.io/Hz15PO7.jpg",
+          "img4": "https://iili.io/Hz156RS.jpg",
+          "category": "monitors",
+          "description": "Explore new worlds and overcome challenging adventures. Stunning graphics, amazing audio, and flawless performance set you up for limitless thrills.. 24.5 inch IPS LED backlight 1920x1080. HDR10. Color Gamut 99% sRGB. Built-in Speaker 2.5Wx2",
+          "brand": "benq",
+          "quantity": 1,
+          "stock": 9,
+          "price": 410.99,
+          "totalsold": 2,
+          "userrating": [
+            {
+              "id": 1,
+              "name": "firstname",
+              "rating": 3,
+              "comment": "comment"
+            }
+          ]
+        }
+      ],
+      "id": 3
+    }
+  ]
+}
