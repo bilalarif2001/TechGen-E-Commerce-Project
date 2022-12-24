@@ -67,6 +67,7 @@ function Navbar() {
                         <NavLink to={"/shop"}  className={activeStatus}>Shop</NavLink>
                         <NavLink to={"/aboutus"}  className={activeStatus}>About us</NavLink>
                         <NavLink to={"/contactus"}  className={activeStatus}>Contact us</NavLink>
+                        <NavLink to={"/myorders"}  className={activeStatus}>My Orders</NavLink>
                     </div>
                     {email?
                     <div className="ml-auto font-bold justify-self-end text-gray-200 hover:text-white transition " >{`Hello ${name}`} <button className='ml-10 bg-white hover:bg-gray-200 text-black rounded-md font-bold w-24 py-2 px-4 transition' onClick={()=>{localStorage.clear(); toast.info("You have been Successfully logged out",{autoClose:700, onClose: () => {
