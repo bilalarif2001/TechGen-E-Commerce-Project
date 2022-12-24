@@ -194,7 +194,7 @@ function Home(props) {
         </h2>
         {/* Display card if product exists otherwise display heading */}
         {products.length>0? <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
-           {products.slice(1,5).map((item) => (
+           {products.slice(2,6).map((item) => (
             <Card key={item.id} image={item.img1} price={item.price} name={item.name} description={item.description} onClick={()=> navigate(`/product/${item.name}`)} />
           ))}
         </div>:
