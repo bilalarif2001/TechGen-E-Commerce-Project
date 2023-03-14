@@ -4,21 +4,21 @@ TechGen is an Ecommerce Computer store web app, fully build on MERN Stack techno
 ## Features:
 
 User Features: 
-• Login/Signup
-• form validations
-• View products by categories and price
-• Search products
-• Shopping Cart functionality
-• Place orders
-• View order status
+- Login/Signup
+form validations
+View products by categories and price
+Search products
+Shopping Cart functionality
+Place orders
+View order status
 
 
 Admin Features:
 
-• Manage products
-• Maintain inventory
-• Manage users
-• Manage orders
+Manage products
+Maintain inventory
+Manage users
+Manage orders
 
 
 ## How to run this project
