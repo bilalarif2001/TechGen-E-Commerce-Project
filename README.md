@@ -1,5 +1,5 @@
 # TechGen-E-Commerce-Project
-TechGen is an Ecommerce Computer store web app, fully build on MERN Stack technology with tailwind.css.
+TechGen is an Ecommerce Computer store web app, fully build on MERN Stack technology with tailwind.css. This is built on MVC architecture. It covers all the core concepts of react.js such as component, props, state, Context API, two way data binding, useffect, react routers and page navigations. And for node js concepts, it covers MVC, models, routers, CRUD operations, API, middlewares, JWT token. Further features will be added in future.
 
 ## Features:
 
